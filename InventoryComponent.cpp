@@ -57,7 +57,7 @@ int32 UInventoryComponent::AddItem(EItemEnum itemType, int32 amount, int32 index
 
 	int32 stackMax = ItemStatsManager->GetStackMax(itemType); //how many of the item can go in one slot
 	int32 itemOverflow; //how much overflow (returned as 0 or a negative number) if the stack is too big
-	if (itemType == InventoryArray[itemIndex].ItemInSlot) itemOverflow = stackMax - InventoryArray[itemIndex].CurrentStackSize + amount; 
+	if (itemType == InventoryArray[itemIndex].ItemInSlot) itemOverflow = stackMax - (InventoryArray[itemIndex].CurrentStackSize + amount); 
 	else
 	{
 		//TODO: Drop/swap the item that currently occupies the slot
